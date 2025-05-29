@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-gray-100">
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="h-full">
     <nav class="bg-gray-800">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div class="relative flex h-16 items-center justify-between">
@@ -43,19 +43,15 @@
                 </div>
                 <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                     <div class="flex shrink-0 items-center">
-                        <img class="h-8 w-auto"
-                            src="https://laracasts.com/images/logo/logo-triangle.svg"
+                        <img class="h-8 w-auto" src="https://laracasts.com/images/logo/logo-triangle.svg"
                             alt="Your Company">
                     </div>
                     <div class="hidden sm:ml-6 sm:block">
                         <div class="flex space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <a href="/"
-                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Home</a>
-                            <a href="/about"
-                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
-                            <a href="/contact"
-                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+                            <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+                            <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
+                            <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
                         </div>
                     </div>
                 </div>
@@ -79,8 +75,7 @@
                                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                 <span class="absolute -inset-1.5"></span>
                                 <span class="sr-only">Open user menu</span>
-                                <img class="size-8 rounded-full"
-                                    src="https://laracasts.com/images/lary-ai-face.svg"
+                                <img class="size-8 rounded-full" src="https://laracasts.com/images/lary-ai-face.svg"
                                     alt="">
                             </button>
                         </div>
@@ -114,17 +109,17 @@
         </div>
     </nav>
 
-   <header class="bg-white shadow">
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1 class="text-5xl font-bold tracking-tight text-gray-900">{{$heading}}</h1>
-    </div>
-   </header>
+    <header class="bg-white shadow">
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+            <h1 class="text-5xl font-bold tracking-tight text-gray-900">{{ $heading }}</h1>
+        </div>
+    </header>
 
-   <main>
-    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-        {{$slot}}
-    </div>
-   </main>
+    <main>
+        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            {{ $slot }}
+        </div>
+    </main>
 </body>
 
 </html>
