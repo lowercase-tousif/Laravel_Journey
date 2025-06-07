@@ -27,4 +27,12 @@ Route::prefix("/admin")->group(function () {
             return "<h3>Post id: " . $id . "</h3>" . "<p>RevisionId: " . $revisionId . "</p>";
         })->whereNumber('id')->whereAlphaNumeric('revisionId')->name("show");
     });
+
+    Route::fallback(function () {
+        return "<h1>Admin Resource not found</h1>";
+    });
+});
+
+Route::fallback(function () {
+    return "<h1>Page not Found</h1>";
 });
