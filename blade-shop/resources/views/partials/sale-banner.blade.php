@@ -1,0 +1,1 @@
+<p style="color:tomato">ON SALE!</p>
